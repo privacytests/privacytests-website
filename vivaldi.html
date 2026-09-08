@@ -97,6 +97,19 @@
   font-size: 16px;
 }
 
+.header div.link-header:has(img) {
+  padding: 0px 7px;
+}
+
+/* Extra gap after About, before the social icons */
+.header div.link-header:nth-child(2) {
+  padding-right: 44px;
+}
+
+.header div.link-header:has(img):last-child {
+  padding-left: 44px;
+}
+
 .header div.link-header img {
   width: 20px;
 }
@@ -107,6 +120,15 @@
 .header a {
   text-decoration: none;
   color:black;
+}
+
+.header .links a:hover {
+  color: darkblue;
+}
+
+.header .links a:hover img {
+  /* Tint black SVG icons to darkblue (#00008b) */
+  filter: invert(12%) sepia(98%) saturate(5630%) hue-rotate(240deg) brightness(70%) contrast(125%);
 }
 
 .title {
@@ -168,12 +190,16 @@ h1.title {
 Issues are welcome!"><img alt="Github icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZD0iTTEyIDBDNS4zNzQgMCAwIDUuMzczIDAgMTJjMCA1LjMwMiAzLjQzOCA5LjggOC4yMDcgMTEuMzg3LjU5OS4xMTEuNzkzLS4yNjEuNzkzLS41Nzd2LTIuMjM0Yy0zLjMzOC43MjYtNC4wMzMtMS40MTYtNC4wMzMtMS40MTYtLjU0Ni0xLjM4Ny0xLjMzMy0xLjc1Ni0xLjMzMy0xLjc1Ni0xLjA4OS0uNzQ1LjA4My0uNzI5LjA4My0uNzI5IDEuMjA1LjA4NCAxLjgzOSAxLjIzNyAxLjgzOSAxLjIzNyAxLjA3IDEuODM0IDIuODA3IDEuMzA0IDMuNDkyLjk5Ny4xMDctLjc3NS40MTgtMS4zMDUuNzYyLTEuNjA0LTIuNjY1LS4zMDUtNS40NjctMS4zMzQtNS40NjctNS45MzEgMC0xLjMxMS40NjktMi4zODEgMS4yMzYtMy4yMjEtLjEyNC0uMzAzLS41MzUtMS41MjQuMTE3LTMuMTc2IDAgMCAxLjAwOC0uMzIyIDMuMzAxIDEuMjNBMTEuNTA5IDExLjUwOSAwIDAgMSAxMiA1LjgwM2MxLjAyLjAwNSAyLjA0Ny4xMzggMy4wMDYuNDA0IDIuMjkxLTEuNTUyIDMuMjk3LTEuMjMgMy4yOTctMS4yMy42NTMgMS42NTMuMjQyIDIuODc0LjExOCAzLjE3Ni43Ny44NCAxLjIzNSAxLjkxMSAxLjIzNSAzLjIyMSAwIDQuNjA5LTIuODA3IDUuNjI0LTUuNDc5IDUuOTIxLjQzLjM3Mi44MjMgMS4xMDIuODIzIDIuMjIydjMuMjkzYzAgLjMxOS4xOTIuNjk0LjgwMS41NzZDMjAuNTY2IDIxLjc5NyAyNCAxNy4zIDI0IDEyYzAtNi42MjctNS4zNzMtMTItMTItMTIiLz48L3N2Zz4="></a>
     </div>
     <div class="link-header">
-      <a href="https://twitter.com/privacytests" title="@privacytests on Twitter.
-Join the discussion!"><img alt="Twitter icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZD0iTTI0IDQuNTU3YTkuODMgOS44MyAwIDAgMS0yLjgyOC43NzUgNC45MzIgNC45MzIgMCAwIDAgMi4xNjUtMi43MjQgOS44NjQgOS44NjQgMCAwIDEtMy4xMjcgMS4xOTUgNC45MTYgNC45MTYgMCAwIDAtMy41OTQtMS41NTVjLTMuMTc5IDAtNS41MTUgMi45NjYtNC43OTcgNi4wNDVBMTMuOTc4IDEzLjk3OCAwIDAgMSAxLjY3MSAzLjE0OWE0LjkzIDQuOTMgMCAwIDAgMS41MjMgNi41NzQgNC45MDMgNC45MDMgMCAwIDEtMi4yMjktLjYxNmMtLjA1NCAyLjI4MSAxLjU4MSA0LjQxNSAzLjk0OSA0Ljg5YTQuOTM1IDQuOTM1IDAgMCAxLTIuMjI0LjA4NCA0LjkyOCA0LjkyOCAwIDAgMCA0LjYgMy40MTlBOS45IDkuOSAwIDAgMSAwIDE5LjU0YTEzLjk0IDEzLjk0IDAgMCAwIDcuNTQ4IDIuMjEyYzkuMTQyIDAgMTQuMzA3LTcuNzIxIDEzLjk5NS0xNC42NDZBMTAuMDI1IDEwLjAyNSAwIDAgMCAyNCA0LjU1NyIvPjwvc3ZnPg=="></a>
+      <a href="https://twitter.com/privacytests" title="@privacytests on X.
+Join the discussion!"><img alt="X icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMTIuNi43NWgyLjQ1NGwtNS4zNiA2LjE0MkwxNiAxNS4yNWgtNC45MzdsLTMuODY3LTUuMDctNC40MjUgNS4wN0guMzE2bDUuNzMzLTYuNTdMMCAuNzVoNS4wNjNsMy40OTUgNC42MzNMMTIuNjAxLjc1Wm0tLjg2IDEzLjAyOGgxLjM2TDQuMzIzIDIuMTQ1SDIuODY1eiIvPjwvc3ZnPgo="></a>
     </div>
     <div class="link-header">
       <a href="https://mastodon.social/@privacytests" title="@privacytests on Mastodon.
 Join the discussion!" rel="me"><img alt="Mastodon icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiI+PHBhdGggZD0iTTE1LjkxNy4wNzNDMTEuODk5LjA4OSA3LjkwOS41OTkgNS44MzMgMS41NTZjMCAwLTQuNDY2IDIuMDMzLTQuNDY2IDguOTU5IDAgOC4yNDQtLjAwNiAxOC41OTcgNy40IDIwLjYgMi44MzYuNzYxIDUuMjc1LjkyNSA3LjIzNi44MTIgMy41NTgtLjIgNS4zMTgtMS4yOTEgNS4zMTgtMS4yOTFsLS4xMi0yLjYzcy0yLjMwNi44MTMtNS4xNjIuNzJjLTIuODMtLjEtNS44MS0uMzEyLTYuMjc1LTMuODQ1YTcuNTA0IDcuNTA0IDAgMCAxLS4wNjItLjk5M2M1Ljk5NiAxLjQ4OSAxMS4xMDguNjQ5IDEyLjUxNi40NzggMy45My0uNDc3IDcuMzUtMi45NDEgNy43ODctNS4xOTQuNjg0LTMuNTQ5LjYyNi04LjY1Ny42MjYtOC42NTcgMC02LjkyNi00LjQ1OS04Ljk1OS00LjQ1OS04Ljk1OUMyMy45ODMuNTM0IDE5LjkzNS4wNTYgMTUuOTE3LjA3M20tNC4zIDUuMjgyYzEuMzc3LjAzNyAyLjczNy42NTMgMy41NzUgMS45NTRsLjgxIDEuMzc3LjgwOS0xLjM3N2MxLjY4My0yLjYxNyA1LjQ1NC0yLjQ1NCA3LjI0OS0uNDI5IDEuNjU1IDEuOTI2IDEuMjg2IDMuMTcgMS4yODYgMTEuNzc1di4wMDNoLTMuMjU1VjExLjE3YzAtMy41MDYtNC40Ny0zLjY0MS00LjQ3LjQ4NnY0LjMzOWgtMy4yMzR2LTQuMzRjMC00LjEyNi00LjQ2Ny0zLjk5My00LjQ2Ny0uNDg4djcuNDg4SDYuNjU3YzAtOC42MTItLjM2Mi05Ljg2MyAxLjI4Ni0xMS43NzUuOTA0LTEuMDE5IDIuMjk3LTEuNTYyIDMuNjc0LTEuNTI1IiBzdHlsZT0ic3Ryb2tlLXdpZHRoOjEuMzMwMzEiLz48L3N2Zz4="></a>
+    </div>
+    <div class="link-header">
+      <a href="https://bsky.app/profile/privacytests.org" title="@privacytests.org on Bluesky.
+Join the discussion!"><img alt="Bluesky icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMy40NjggMS45NDhDNS4zMDMgMy4zMjUgNy4yNzYgNi4xMTggOCA3LjYxNmMuNzI1LTEuNDk4IDIuNjk4LTQuMjkgNC41MzItNS42NjhDMTMuODU1Ljk1NSAxNiAuMTg2IDE2IDIuNjMyYzAgLjQ4OS0uMjggNC4xMDUtLjQ0NCA0LjY5Mi0uNTcyIDIuMDQtMi42NTMgMi41NjEtNC41MDQgMi4yNDYgMy4yMzYuNTUxIDQuMDYgMi4zNzUgMi4yODEgNC4yLTMuMzc2IDMuNDY0LTQuODUyLS44Ny01LjIzLTEuOTgtLjA3LS4yMDQtLjEwMy0uMy0uMTAzLS4yMTggMC0uMDgxLS4wMzMuMDE0LS4xMDIuMjE4LS4zNzkgMS4xMS0xLjg1NSA1LjQ0NC01LjIzMSAxLjk4LTEuNzc4LTEuODI1LS45NTUtMy42NSAyLjI4LTQuMi0xLjg1LjMxNS0zLjkzMi0uMjA1LTQuNTAzLTIuMjQ2Qy4yOCA2LjczNyAwIDMuMTIgMCAyLjYzMiAwIC4xODYgMi4xNDUuOTU1IDMuNDY4IDEuOTQ4Ii8+PC9zdmc+Cg=="></a>
     </div>
     <div class="link-header">
       <a href="https://www.linkedin.com/company/privacytests-org" title="@privacytests on LinkedIn.
