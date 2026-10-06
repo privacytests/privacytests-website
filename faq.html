@@ -14,12 +14,40 @@
     <title>Open-source tests of web browser privacy</title>
     <meta name="description" content="PrivacyTests.org subjects major web browsers to a suite of automated tests to find out: which web browsers offer the best privacy protections?">
     <meta name="format-detection" content="telephone=no">
-    <style>body {
+    <style>:root {
+  color-scheme: light dark;
+  --page-bg: #fff;
+  --page-text: #000;
+  --header-bg: #eee;
+  --header-text: rgb(80, 80, 80);
+  --header-link: black;
+  --header-link-hover: darkblue;
+  --blockquote-bg: #eee;
+  --logo-disc: #fff;
+  --link: #0000ee;
+  --link-visited: #551a8b;
+}
+
+html {
+  background-color: var(--page-bg);
+}
+
+body {
   font-family: sans-serif;
   margin:0px;
   display: flex;
   flex-direction: row;
   overflow-y: scroll;
+  background-color: var(--page-bg);
+  color: var(--page-text);
+}
+
+a:link {
+  color: var(--link);
+}
+
+a:visited {
+  color: var(--link-visited);
 }
 
 .wrapper {
@@ -33,9 +61,9 @@
 }
 
 .header {
-  background-color: #eee;
+  background-color: var(--header-bg);
  /* border-bottom: darkgreen 1px solid; */
-  color: rgb(80, 80, 80);
+  color: var(--header-text);
   /*display:table-cell;*/
   display: flex;
   /*flex-flow: row wrap;*/
@@ -70,7 +98,7 @@
   display: flex;
   align-items: center;
 }
-.header div.title img {
+.header div.title .pto-logo {
   padding-right: 16px;
 }
 
@@ -114,16 +142,24 @@
   width: 20px;
 }
 .pto-logo {
-  height:48px;
+  height: 48px;
+  width: 48px;
+  display: block;
+  flex-shrink: 0;
+  box-sizing: content-box;
+}
+.pto-logo-disc {
+  fill: var(--logo-disc);
 }
 
-.header a {
+.header a:link,
+.header a:visited {
   text-decoration: none;
-  color:black;
+  color: var(--header-link);
 }
 
 .header .links a:hover {
-  color: darkblue;
+  color: var(--header-link-hover);
 }
 
 .header .links a:hover img {
@@ -142,7 +178,7 @@
 blockquote {
 /*  font-style: italic;*/
   font-size: 16px;
-  background-color: #eee;
+  background-color: var(--blockquote-bg);
   padding: 2px 1em;
   margin: 5px;
 }
@@ -164,6 +200,30 @@ p.footer {
 h1.title {
   text-transform: none;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg: #121212;
+    --page-text: #e8e8e8;
+    --header-bg: #202020;
+    --header-text: #c8c8c8;
+    --header-link: #f2f2f2;
+    --header-link-hover: #9ec1ff;
+    --blockquote-bg: #202020;
+    --logo-disc: #3a3a3a;
+    --link: #8ab4f8;
+    --link-visited: #c58af9;
+  }
+
+  .header div.link-header img {
+    filter: invert(1);
+  }
+
+  .header .links a:hover img {
+    /* Tint the inverted black icon toward light blue. */
+    filter: invert(80%) sepia(11%) saturate(1692%) hue-rotate(187deg) brightness(101%) contrast(97%);
+  }
+}
 </style>
   </head>
   <body>
@@ -173,7 +233,7 @@ h1.title {
   <div class="title-wrapper">
     <div class="title">
       <a href="/">
-        <img class="pto-logo" alt="PrivacyTests.org logo" src="data:image/png;base64,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">
+        <svg class="pto-logo" role="img" aria-label="PrivacyTests.org logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 -24.3605 245.353 245.353"><circle class="pto-logo-disc" cx="122.6765" cy="98.316" r="122.6765"/><path d="M831.592 57.676h49.588v228.491h-49.588z" style="fill:#03a904;stroke:none" transform="rotate(45 590.562 -721.141)"/><path d="M236.579-881.18h49.588v118.491h-49.588z" style="fill:#03a904;stroke:none" transform="rotate(135 -38.246 -384.189)"/></svg>
         <span>PrivacyTests.org</span>
       </a>
     </div>
@@ -190,7 +250,7 @@ h1.title {
 Issues are welcome!"><img alt="Github icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZD0iTTEyIDBDNS4zNzQgMCAwIDUuMzczIDAgMTJjMCA1LjMwMiAzLjQzOCA5LjggOC4yMDcgMTEuMzg3LjU5OS4xMTEuNzkzLS4yNjEuNzkzLS41Nzd2LTIuMjM0Yy0zLjMzOC43MjYtNC4wMzMtMS40MTYtNC4wMzMtMS40MTYtLjU0Ni0xLjM4Ny0xLjMzMy0xLjc1Ni0xLjMzMy0xLjc1Ni0xLjA4OS0uNzQ1LjA4My0uNzI5LjA4My0uNzI5IDEuMjA1LjA4NCAxLjgzOSAxLjIzNyAxLjgzOSAxLjIzNyAxLjA3IDEuODM0IDIuODA3IDEuMzA0IDMuNDkyLjk5Ny4xMDctLjc3NS40MTgtMS4zMDUuNzYyLTEuNjA0LTIuNjY1LS4zMDUtNS40NjctMS4zMzQtNS40NjctNS45MzEgMC0xLjMxMS40NjktMi4zODEgMS4yMzYtMy4yMjEtLjEyNC0uMzAzLS41MzUtMS41MjQuMTE3LTMuMTc2IDAgMCAxLjAwOC0uMzIyIDMuMzAxIDEuMjNBMTEuNTA5IDExLjUwOSAwIDAgMSAxMiA1LjgwM2MxLjAyLjAwNSAyLjA0Ny4xMzggMy4wMDYuNDA0IDIuMjkxLTEuNTUyIDMuMjk3LTEuMjMgMy4yOTctMS4yMy42NTMgMS42NTMuMjQyIDIuODc0LjExOCAzLjE3Ni43Ny44NCAxLjIzNSAxLjkxMSAxLjIzNSAzLjIyMSAwIDQuNjA5LTIuODA3IDUuNjI0LTUuNDc5IDUuOTIxLjQzLjM3Mi44MjMgMS4xMDIuODIzIDIuMjIydjMuMjkzYzAgLjMxOS4xOTIuNjk0LjgwMS41NzZDMjAuNTY2IDIxLjc5NyAyNCAxNy4zIDI0IDEyYzAtNi42MjctNS4zNzMtMTItMTItMTIiLz48L3N2Zz4="></a>
     </div>
     <div class="link-header">
-      <a href="https://twitter.com/privacytests" title="@privacytests on X.
+      <a href="https://x.com/privacytests" title="@privacytests on X.
 Join the discussion!"><img alt="X icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMTIuNi43NWgyLjQ1NGwtNS4zNiA2LjE0MkwxNiAxNS4yNWgtNC45MzdsLTMuODY3LTUuMDctNC40MjUgNS4wN0guMzE2bDUuNzMzLTYuNTdMMCAuNzVoNS4wNjNsMy40OTUgNC42MzNMMTIuNjAxLjc1Wm0tLjg2IDEzLjAyOGgxLjM2TDQuMzIzIDIuMTQ1SDIuODY1eiIvPjwvc3ZnPgo="></a>
     </div>
     <div class="link-header">

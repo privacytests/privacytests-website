@@ -356,13 +356,108 @@ table.comparison-table .date {
   width: 32px;
   height: 32px;
 }
+
+/* propagated dark mode */
+:root {
+  color-scheme: light dark;
+}
+.pto-logo {
+  height: 48px;
+  width: 48px;
+  display: block;
+  flex-shrink: 0;
+  box-sizing: content-box;
+  padding-right: 16px;
+}
+.pto-logo-disc {
+  fill: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #121212;
+    color: #e8e8e8;
+  }
+  a:link {
+    color: #8ab4f8;
+  }
+  a:visited {
+    color: #c58af9;
+  }
+  .header {
+    background-color: #202020;
+    color: #c8c8c8;
+  }
+  .header a,
+  .header a:link,
+  .header a:visited {
+    color: #f2f2f2;
+  }
+  .header .links a:hover {
+    color: #9ec1ff;
+  }
+  .header div.link-header img {
+    filter: invert(1);
+  }
+  .header .links a:hover img {
+    filter: invert(80%) sepia(11%) saturate(1692%) hue-rotate(187deg) brightness(101%) contrast(97%);
+  }
+  blockquote {
+    background-color: #202020;
+  }
+  .pto-logo-disc {
+    fill: #3a3a3a;
+  }
+  table.comparison-table tr th.table-header {
+    background-color: #121212;
+  }
+  table.comparison-table .subtitle,
+  .banner .click-anywhere {
+    color: #a3a3a3;
+  }
+  table.comparison-table tr:nth-child(2n+1) td {
+    background-color: #1c1c1c;
+  }
+  table.comparison-table tr:nth-child(2n) td {
+    background-color: #121212;
+  }
+  table.comparison-table .subheading-title,
+  table.comparison-table .subheading .tagline {
+    color: #f0f0f0;
+  }
+  table.comparison-table .date {
+    color: #b5b5b5;
+  }
+  #issueBanner,
+  #navBanner {
+    border-bottom-color: #3a3a3a;
+  }
+  .selectedItem {
+    border-bottom-color: #7dce7d;
+  }
+  #instructions {
+    border-bottom-color: #3a3a3a;
+  }
+  .tooltipText,
+  .tooltipParent .tooltipText {
+    background-color: #22221c;
+    border-color: #555;
+    color: #eee;
+  }
+  .tooltipParent[style*="background-color"] {
+    background-color: #3f3818 !important;
+  }
+  .bad {
+    background-image: none;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='187.124' height='187.124' fill='%23009edc'%3E%3Cg transform='translate(-9.232 -1.218)'%3E%3Crect width='38.255' height='227.157' x='-24.794' y='-253.285' ry='.667' style='fill:%23ff2d2d;stroke:none' transform='rotate(135)'/%3E%3Crect width='38.255' height='227.157' x='-158.834' y='-107.912' ry='.667' style='fill:%23ff2d2d;stroke:none' transform='rotate(-135)'/%3E%3C/g%3E%3C/svg%3E");
+  }
+}
 </style>
   </head>
   <body>
     <div class="wrapper">
       <div class="header">
         <div class="title-wrapper">
-          <div class="title"><a href="/"><img class="pto-logo" alt="PrivacyTests.org logo" src="data:image/png;base64,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"><span>PrivacyTests.org</span></a></div>
+          <div class="title"><a href="/"><svg class="pto-logo" role="img" aria-label="PrivacyTests.org logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 -24.3605 245.353 245.353"><circle class="pto-logo-disc" cx="122.6765" cy="98.316" r="122.6765"/><path d="M831.592 57.676h49.588v228.491h-49.588z" style="fill:#03a904;stroke:none" transform="rotate(45 590.562 -721.141)"/><path d="M236.579-881.18h49.588v118.491h-49.588z" style="fill:#03a904;stroke:none" transform="rotate(135 -38.246 -384.189)"/></svg><span>PrivacyTests.org</span></a></div>
         </div>
         <div class="links">
           <div class="link-header"><a href="/news">News</a></div>
